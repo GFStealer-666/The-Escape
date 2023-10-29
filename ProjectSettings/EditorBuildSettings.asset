@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Test Scene/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/Test Scene/GameScene.unity
+    guid: f22b7c3422bb8b44aaa336f0429aa69c
+  - enabled: 0
+    path: Assets/Scenes/FinaGame.unity
+    guid: 013b32c9d4d74d946b5deacdf9da918d
+  - enabled: 0
+    path: Assets/Scenes/Test Scene/stupidscene.unity
+    guid: 0840b4660c59aad48ae862da72b08c20
+  - enabled: 1
+    path: Assets/Scenes/FinalGame.unity
+    guid: dd2d641af8335144ab9ddf4353333501
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
