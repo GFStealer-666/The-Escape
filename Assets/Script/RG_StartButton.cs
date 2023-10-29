@@ -14,7 +14,7 @@ public class RG_StartButton : NetworkBehaviour , IInteractable
 
     public delegate void PressChanged(bool pressed);
 
-    public event PressChanged OnPressChanged;
+    public static event PressChanged OnStartButtonPress;
 
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
@@ -50,7 +50,7 @@ public class RG_StartButton : NetworkBehaviour , IInteractable
     public void OnSwitchPressedServerRpc()
     {
         _pressed.Value = true;
-        OnPressChanged?.Invoke(_pressed.Value);
+        OnStartButtonPress?.Invoke(_pressed.Value);
         if(IsHost){
             this.gameObject.SetActive(false);
         }

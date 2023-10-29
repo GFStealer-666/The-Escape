@@ -14,9 +14,6 @@ public class RG_LoginManagerScript : MonoBehaviour
 
     [SerializeField] private GameObject _leaveButton;
 
-     [SerializeField] private GameObject _clockTimer;
-
-    [SerializeField] private GameObject _scorePanel;
 
     [SerializeField] public TMP_InputField _userNameInputFromCreatePanel;
     [SerializeField] public TMP_InputField _userNameInputFromCodePanel;
@@ -73,20 +70,17 @@ public class RG_LoginManagerScript : MonoBehaviour
         // Debug.Log(_isUserLogin);
         if(_isUserLogin == true)
         {
-            if(_loginPanel && _leaveButton && _scorePanel && _clockTimer != null){
+            if(_loginPanel && _leaveButton != null){
                 _loginPanel.SetActive(false);
                 _leaveButton.SetActive(true);
-                _scorePanel.SetActive(true);   
-                _clockTimer.SetActive(true);
             }
             
         }
         else{
-            if(_loginPanel && _leaveButton && _scorePanel && _clockTimer != null){
+            if(_loginPanel && _leaveButton != null){
                 _loginPanel.SetActive(true);
                 _leaveButton.SetActive(false);
-                _scorePanel.SetActive(false);   
-                _clockTimer.SetActive(false);
+
             }
         }
     }

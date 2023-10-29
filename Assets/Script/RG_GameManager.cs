@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class RG_GameManager : NetworkBehaviour
 {
@@ -23,6 +24,7 @@ public class RG_GameManager : NetworkBehaviour
     [SerializeField] private GameObject _codePanel;
 
     [SerializeField] private int _score;
+    [SerializeField] private SceneAsset reloadScene;
 
     private RG_LoginManagerScript _loginManagerScript;
     public override void OnNetworkSpawn()
@@ -30,10 +32,6 @@ public class RG_GameManager : NetworkBehaviour
         _gamePlayingTime.Value = _gamePlayingTimeMax;
         _loginManagerScript = FindObjectOfType<RG_LoginManagerScript>();
     }
-
- 
- 
-
     private void Start()
     {
         _scoreManagerScript = FindObjectOfType<RG_ScoreManager>();
@@ -92,14 +90,14 @@ public class RG_GameManager : NetworkBehaviour
 
     public void reloadTheGame(){
         NetworkManager.Singleton.Shutdown();
-        NetworkManager.Singleton.SceneManager.LoadScene("FinalGame",LoadSceneMode.Single);
+        NetworkManager.Singleton.SceneManager.LoadScene(reloadScene.ToString() ,LoadSceneMode.Single);
     }
 
     [ClientRpc]
     public void GameOverClientRpc()
     {
         _gameOverText.SetActive(true);
-        Invoke("reloadTheGame",3);
+        Invoke("reloadTheGame",3.0f);
         _gameOverText.SetActive(false);
     }
 
@@ -108,7 +106,7 @@ public class RG_GameManager : NetworkBehaviour
     public void GameVictoryClientRPc()
     {
         _victoryText.SetActive(true);
-        Invoke("reloadTheGame",3);
+        Invoke("reloadTheGame",3.0f);
         _victoryText.SetActive(false);
     }
 
